@@ -12,6 +12,22 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # Click "Open user guide" on the EV3 extension tab for more information.
 
 
+def Follow_Line_Distance(distance):
+    BLACK = 9
+    WHITE = 85
+    threshold = (BLACK + WHITE) / 2
+    DRIVE_SPEED = 100
+    PROPORTIONAL_GAIN = 1.2
+
+    while robot.distance >= distance:
+        deviation = line_sensor.reflection() - threshold
+        turn_rate = PROPORTIONAL_GAIN * deviation
+        robot.drive(DRIVE_SPEED, turn_rate)
+        wait(10)
+
+
+
+
 # Create your objects here.
 ev3 = EV3Brick()
 Motor_left = Motor(Port.A,positive_direction=Direction.CLOCKWISE, gears=None)
