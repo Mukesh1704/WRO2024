@@ -26,4 +26,5 @@ distance = UltrasonicSensor(Port.S4)
 
 
 # Write your program here.
-ev3.speaker.beep()
+while color1.reflection() >= 15:
+    Robot.drive(50,16)
