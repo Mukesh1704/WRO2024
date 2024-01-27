@@ -14,6 +14,15 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 # Create your objects here.
 ev3 = EV3Brick()
+Motor_left = Motor(Port.A,positive_direction=Direction.CLOCKWISE, gears=None)
+Motor_right = Motor(Port.D,positive_direction=Direction.CLOCKWISE, gears=None)
+Motor_y = Motor(Port.B,positive_direction=Direction.CLOCKWISE, gears=[24]) #Werte nur Beispiel
+Motor_x = Motor(Port.C,positive_direction=Direction.CLOCKWISE, gears=[24]) #Werte nur Beispiel
+Robot = DriveBase(Motor_left,Motor_right,90,120) # Werte nur beispiel
+color1 = ColorSensor(Port.S1)
+color2 = ColorSensor(Port.S2)
+gyro = GyroSensor(Port.S3)
+distance = UltrasonicSensor(Port.S4)
 
 
 # Write your program here.
