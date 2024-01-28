@@ -27,7 +27,6 @@ def Follow_Line_Distance(distance):
 
 
 
-
 # Create your objects here.
 ev3 = EV3Brick()
 Motor_left = Motor(Port.A,positive_direction=Direction.CLOCKWISE, gears=None)
