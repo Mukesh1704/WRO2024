@@ -21,12 +21,20 @@ class WRO:
         pass
 
     def zugreifen():    #schließt die Kralle
-
-        pass
+        greifarm.reset_angle(0)
+        greifarm.run(-150)
+        while greifarm.angle() >= -230:
+            pass
+        greifarm.hold()
+        
 
     def aufmachen():    #oeffnet die Kralle
-
-        pass
+        greifarm.reset_angle(0) 
+        greifarm.run(150)
+        while greifarm.angle() <= -230:
+            pass
+        greifarm.hold()
+        
 
     def hochfahren():   #fährt Gabelstapler hoch
 
@@ -45,5 +53,4 @@ class WRO:
         	
         pass
 
-    
-    
+
