@@ -28,8 +28,6 @@ Customize the code to match the specific challenges and requirements of the WRO 
 ## Contribution
 Please note that this repository is exclusively for Team Katherlstrophe. We will only accept commits to the main branch. Feel free to fork this repository for experimentation and development.
 
-## License
-This project is licensed under the [MIT License](LICENSE.md) - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
 We would like to express our gratitude to the EV3 community and the WRO organizers for inspiring and supporting us throughout the development of this project.
