@@ -41,7 +41,7 @@ class WRO:
 
         return (x,y,r)
 
-    def fahre_zu(currentx,currenty,x,y):     #fährt zu den angegebenen Koordinaten
+    def fahre_zu(currentx,currenty, currentr,x,y,r):     #fährt zu den angegebenen Koordinaten und rotation
         	
         pass
 
