@@ -36,7 +36,7 @@ class WRO:
     
         pass
 
-    def Position():     #gibt Position und Rotation des Roboters zurück(berechnet durch die bisherigen Fahrten)
+    def Position():     #gibt Position #und Rotation des Roboters #zurück(berechnet durch die bisherigen #Fahrten)
         
 
         return (x,y,r)
@@ -44,6 +44,7 @@ class WRO:
     def fahre_zu(currentx,currenty,x,y):     #fährt zu den angegebenen Koordinaten
         	
         pass
+
 
     
     
