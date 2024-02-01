@@ -8,31 +8,53 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
 
-# This program requires LEGO EV3 MicroPython v2.0 or higher.
-# Click "Open user guide" on the EV3 extension tab for more information.
+class WRO:
+    def __init__():     #setzt alle Sensoren und Aktoren auf
+        ev3 = EV3Brick()
+        lm = Motor(Port.A)
+        rm = Motor(Port.D)
+        robot = DriveBase(lm,rm, 55, 141)
+        gabelstapler = Motor(Port.B)
+        greifarm = Motor(Port.C)
+        pass
 
+    def zugreifen():    #schließt die Kralle
+        greifarm.reset_angle(0)
+        greifarm.run(-150)
+        while greifarm.angle() >= -230:
+            pass
+        greifarm.hold()
+        
 
-# Create your objects here.
-ev3 = EV3Brick()
-lm = Motor(Port.A)
-rm = Motor(Port.D)
-robot = DriveBase(lm,rm, 55, 141)
-gabelstapler = Motor(Port.B)
-greifarm = Motor(Port.C)
+    def aufmachen():    #oeffnet die Kralle
+        greifarm.reset_angle(0) 
+        greifarm.run(150)
+        while greifarm.angle() <= -230:
+            pass
+        greifarm.hold()
+        
 
-# Write your program here.
-#gabelstapler.reset_angle(0)
-#gabelstapler.run(-80)
-#while gabelstapler.angle() >= -250:
-#    print(gabelstapler.angle())
-greifarm.reset_angle(0)
-greifarm.run(-150)
-while greifarm.angle() >= -230:
-    pass
-greifarm.hold()
+    def hochfahren():   #fährt Gabelstapler hoch
+        
+        gabelstapler.reset_angle(0)
+        abelstapler.run(-80)
+        while gabelstapler.angle() >= -250:
+            pass
+        gabelstapler.hold()
 
-gabelstapler.reset_angle(0)
-gabelstapler.run(80)
-while gabelstapler.angle() <= 250:
-    print(gabelstapler.angle())
-gabelstapler.hold()
+    def runterfahren(): #fährt Gabelstapler runter
+    
+        gabelstapler.reset_angle(0)
+        gabelstapler.run(80)
+        while gabelstapler.angle() <= 250:
+            pass
+        gabelstapler.hold()
+
+    def Position():     #gibt Position #und Rotation des Roboters #zurück(berechnet durch die bisherigen #Fahrten)
+        
+
+        return (x,y,r)
+
+    def fahre_zu(currentx,currenty, currentr,x,y,r):     #fährt zu den angegebenen Koordinaten und rotation
+        	
+        pass
