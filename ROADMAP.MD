@@ -1,7 +1,7 @@
-# WRO Eichstätt 2024 - Team Katherlstrophe EV3 Robot Strategy
+# WRO Freising 2024 - Team Katherlstrophe EV3 Robot Strategy
 
 ## Overview
-Our robot is strategically designed to navigate the competition field efficiently, following a systematic approach to complete tasks in the WRO Eichstätt 2024 challenges.
+Our robot is strategically designed to navigate the competition field efficiently, following a systematic approach to complete tasks in the WRO Freising 2024 challenges.
 
 ## Task Sequence
 1. **Navigation near Green House:**
@@ -32,4 +32,4 @@ This strategy is tailored for Team Katherlstrophe's unique approach. Commits sho
 ## Acknowledgments
 Special thanks to the EV3 community and WRO organizers for their inspiration and support in developing this strategic approach.
 
-Best of luck to Team Katherlstrophe at WRO Eichstätt 2024! 🤖
+Best of luck to Team Katherlstrophe at WRO Freising 2024! 🤖
