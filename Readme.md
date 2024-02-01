@@ -1,1 +1,1 @@
-#nothing
+this project is for use by the Katharinen-Gymnasium Ingolstadt only. sharing this code with fellow competitors is forbidden. WE WILL ONLY COMMIT TO MAIN!
