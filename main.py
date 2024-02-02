@@ -16,6 +16,10 @@ class WRO:
         robot = DriveBase(lm,rm, 55, 141)
         gabelstapler = Motor(Port.B)
         greifarm = Motor(Port.C)
+        clinie = ColorSensor(Port.S1)
+        cfarbe = ColorSensor(Port.S2)
+        gyro = GyroSensor(Port.S3)
+        ulrtaschall = UltrasonicSensor(Port.S4)
         pass
 
     def zugreifen():    #schließt die Kralle
@@ -58,3 +62,11 @@ class WRO:
     def fahre_zu(currentx,currenty, currentr,x,y,r):     #fährt zu den angegebenen Koordinaten und rotation
         	
         pass
+
+    def linie_folgen(distanz, typ):
+        robot.reset()
+        while robot.distance() <= distanz:
+            deviation = clinie.reflection() - 50
+            turn_rate = 1.2 * deviation * typ
+            robot.drive(100, turn_rate)
+            wait(10)
