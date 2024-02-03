@@ -70,3 +70,28 @@ class WRO:
             turn_rate = 1.2 * deviation * typ
             robot.drive(100, turn_rate)
             wait(10)
+        robot.stop()
+        lm.stop()
+        rm.stop()
+
+    def perfekte_kurve_rechts():
+        robot.reset()
+        while robot.state()[2] >= -90:
+            x = robot.state()[2]
+            y = -0.05*(0-x)*(90+x) -41
+            robot.drive(1, y)
+     
+        robot.stop()
+        lm.stop()
+        rm.stop()
+
+    def perfekte_kurve_links():
+        robot.reset()
+        while robot.state()[2] <= 90:
+            x = robot.state()[2]
+            y = 0.05*(0+x)*(90-x) +41
+            robot.drive(1, y)
+     
+        robot.stop()
+        lm.stop()
+        rm.stop()
