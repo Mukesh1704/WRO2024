@@ -1,7 +1,7 @@
 # EV3 Robot for WRO Freising 2024 - Team Katherlstrophe
 
 ## Overview
-Welcome to our EV3 Robot project designed for the World Robot Olympiad (WRO) in Freising 2024. This repository contains the code and documentation for our competition robot.
+Welcome to our EV3 Robot project designed for the World Robot Olympiad (WRO) in Freising 2024. This repository contains the code and documentation for our competition robot. COMMITS NUR IN DEN MAIN BRANCH!
 
 ## Description
 Our robot is built using the LEGO MINDSTORMS EV3 platform and is specifically tailored for the challenges presented at WRO 2024 in Eichstätt. The project focuses on delivering efficient and precise performance in various tasks, showcasing the versatility of the EV3 system.
