@@ -7,91 +7,84 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
+import math
 
-class WRO:
-    def __init__():     #setzt alle Sensoren und Aktoren auf
-        ev3 = EV3Brick()
-        lm = Motor(Port.A)
-        rm = Motor(Port.D)
-        robot = DriveBase(lm,rm, 55, 141)
-        gabelstapler = Motor(Port.B)
-        greifarm = Motor(Port.C)
-        clinie = ColorSensor(Port.S1)
-        cfarbe = ColorSensor(Port.S2)
-        gyro = GyroSensor(Port.S3)
-        ulrtaschall = UltrasonicSensor(Port.S4)
+
+# This program requires LEGO EV3 MicroPython v2.0 or higher.
+# Click "Open user guide" on the EV3 extension tab for more information.
+
+
+# Create your objects here.
+ev3 = EV3Brick()
+lm = Motor(Port.D)
+rm = Motor(Port.A)
+robot = DriveBase(lm,rm, 55, 141)
+gabelstapler = Motor(Port.B)
+greifarm = Motor(Port.C)
+gyro = GyroSensor(Port.S2)
+
+# Write your program here.
+#gabelstapler.reset_angle(0)
+#gabelstapler.run(-80)
+#while gabelstapler.angle() >= -250:
+#    print(gabelstapler.angle())
+
+def greifarm_f(grad):
+    greifarm.reset_angle(0)
+    greifarm.run((grad/abs(grad))*150)
+    while abs(greifarm.angle()) <= abs(grad):
         pass
+    greifarm.hold()
 
-    def zugreifen():    #schließt die Kralle
-        greifarm.reset_angle(0)
-        greifarm.run(-150)
-        while greifarm.angle() >= -230:
-            pass
-        greifarm.hold()
-        
+def gabelstapler_f(grad):
+    gabelstapler.reset_angle(0)
+    gabelstapler.run(80)
+    while gabelstapler.angle() <= grad:
+        print(gabelstapler.angle())
+    gabelstapler.hold()
 
-    def aufmachen():    #oeffnet die Kralle
-        greifarm.reset_angle(0) 
-        greifarm.run(150)
-        while greifarm.angle() <= -230:
-            pass
-        greifarm.hold()
-        
 
-    def hochfahren():   #fährt Gabelstapler hoch
-        
-        gabelstapler.reset_angle(0)
-        abelstapler.run(-80)
-        while gabelstapler.angle() >= -250:
-            pass
-        gabelstapler.hold()
-
-    def runterfahren(): #fährt Gabelstapler runter
-    
-        gabelstapler.reset_angle(0)
-        gabelstapler.run(80)
-        while gabelstapler.angle() <= 250:
-            pass
-        gabelstapler.hold()
-
-    def Position():     #gibt Position #und Rotation des Roboters #zurück(berechnet durch die bisherigen #Fahrten)
-        
-
-        return (x,y,r)
-
-    def fahre_zu(currentx,currenty, currentr,x,y,r):     #fährt zu den angegebenen Koordinaten und rotation
-        	
-        pass
-
-    def linie_folgen(distanz, typ):
-        robot.reset()
-        while robot.distance() <= distanz:
-            deviation = clinie.reflection() - 50
-            turn_rate = 1.2 * deviation * typ
-            robot.drive(100, turn_rate)
-            wait(10)
-        robot.stop()
-        lm.stop()
-        rm.stop()
-
-    def perfekte_kurve_rechts():
-        robot.reset()
-        while robot.state()[2] >= -90:
-            x = robot.state()[2]
-            y = -0.05*(0-x)*(90+x) -41
-            robot.drive(1, y)
+def perfekte_kurve_rechts(grad):
+    gyro.reset_angle(0)
+    while gyro.angle() <= grad:
+        x = gyro.angle()
+        y = -20 * math.log(grad+x) + 2
+        robot.drive(0, y)
+        print(gyro.angle())
      
-        robot.stop()
-        lm.stop()
-        rm.stop()
+    robot.stop()
+    lm.stop()
+    rm.stop()
 
-    def perfekte_kurve_links():
-        robot.reset()
-        while robot.state()[2] <= 90:
-            x = robot.state()[2]
-            y = 0.05*(0+x)*(90-x) +41
-            robot.drive(1, y)
+def perfekte_kurve_links(grad):
+    gyro.reset_angle(0)
+    while gyro.angle() >= -grad:
+        x = gyro.angle()
+        y = 20 * math.log(grad-x) + 2
+        robot.drive(0, y)
+        print(y)
      
-        robot.stop()
-        lm.stop()
-        rm.stop()
+    robot.stop()
+    lm.stop()
+    rm.stop()
+
+
+
+perfekte_kurve_links(55)
+greifarm_f(-90)
+
+
+robot.straight(350)
+perfekte_kurve_rechts(110)
+
+robot.straight(280)
+greifarm_f(100)
+
+robot.straight(100)
+perfekte_kurve_rechts(30)
+
+robot.straight(900)
+
+perfekte_kurve_links(45)
+
+robot.straight(600)
